@@ -9,8 +9,6 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 mongoose.connect(process.env.dataBaseURI, {useNewUrlParser:true, useUnifiedTopology:true})
-  .then(result => app.listen(port))
-  .catch(err => console.log(err));
 
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:true}))
@@ -55,3 +53,5 @@ function ercTxns(address) {
   });
   return result;
 }
+
+app.listen(port)
