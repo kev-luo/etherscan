@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/_head.ejs') %>
+<body>
+  <%- include('./partials/_nav.ejs') %>
+
+  <section class="section">
+    <div class="container">
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Block No.</th>
+            <th>Time Stamp</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Value</th>
+            <th>Token Name</th>
+            <th>Gas</th>
+            <th>Gas Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% addressInfo.forEach(address => { %>
+            <tr>
+              <td><%= address.blockNumber %></td>
+              <td><%= address.timeStamp %></td>
+              <td><%= address.from %></td>
+              <td><%= address.to %></td>
+              <td><%= parseFloat(parseInt(address.value)/(10**parseInt(address.tokenDecimal))).toFixed(2) %></td>
+              <td><%= address.tokenName %></td>
+              <td><%= address.gas %></td>
+              <td><%= address.gasUsed %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+</html>
