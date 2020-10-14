@@ -6,7 +6,7 @@ const Ether = require('./models/ethSearch');
 // const api = require('etherscan-api').init(process.env.etherScanKey);
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 mongoose.connect(process.env.dataBaseURI, {useNewUrlParser:true, useUnifiedTopology:true})
   .then(result => app.listen(port))
