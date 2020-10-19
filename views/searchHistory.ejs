@@ -9,16 +9,16 @@
       <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th>Ethereum Address</th>
-            <th>Searched Date</th>
+            <th>Address</th>
+            <th>Blockchain</th>
           </tr>
         </thead>
         <tbody>
           <% if(searches.length>0) { %>
             <% searches.forEach(search => { %>
               <tr>
-                <td><a href="/display/<%= search.address %>"><%= search.address%></a></td>
-                <td><time datetime="<%= search.createdAt %>"><%= search.createdAt.toLocaleDateString() %> <%= search.createdAt.toLocaleTimeString() %></time></td>
+                <td><a href="/display/<%= search.address %>"><%= search.address %></a></td>
+                <td><%= search.blockchain %></td>
               </tr>
             <% }) %>
           <% } %>
